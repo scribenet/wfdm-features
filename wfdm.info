@@ -1,5 +1,5 @@
 name = WFDM
-description = Scribe Inc. Digital Hub
+description = Scribe Inc. Well-formed Document Manager
 core = 7.x
 package = Scribe Inc.
 php = 5.2.4
