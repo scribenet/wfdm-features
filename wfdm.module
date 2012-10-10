@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the WFDM feature.
+ */
+
+include_once 'wfdm.features.inc';
