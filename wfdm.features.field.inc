@@ -396,7 +396,7 @@ function wfdm_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'wfdm_project_escml',
-      'label' => 'SCML',
+      'label' => 'eSCML',
       'required' => 0,
       'settings' => array(
         'description_field' => 0,
@@ -941,6 +941,7 @@ function wfdm_field_default_fields() {
   t('This area is for uploading flat SCML for conversion.');
   t('Upload your images here');
   t('Word documents');
+  t('eSCML');
 
   return $fields;
 }
