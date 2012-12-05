@@ -54,6 +54,14 @@ function wfdm_views_default_views() {
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = TRUE;
+  /* Field: User: Client Code */
+  $handler->display->display_options['fields']['field_client_code']['id'] = 'field_client_code';
+  $handler->display->display_options['fields']['field_client_code']['table'] = 'field_data_field_client_code';
+  $handler->display->display_options['fields']['field_client_code']['field'] = 'field_client_code';
+  $handler->display->display_options['fields']['field_client_code']['relationship'] = 'uid';
+  $handler->display->display_options['fields']['field_client_code']['label'] = '';
+  $handler->display->display_options['fields']['field_client_code']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_client_code']['element_label_colon'] = FALSE;
   /* Field: Content: Project Code */
   $handler->display->display_options['fields']['wfdm_project_code']['id'] = 'wfdm_project_code';
   $handler->display->display_options['fields']['wfdm_project_code']['table'] = 'field_data_wfdm_project_code';
@@ -108,11 +116,11 @@ echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_
 echo \'<input type="submit" value="Process" />\';
 echo \'</form>\';
 if (file_exists($scmlDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml.zip">Download&nbsp;SCML</a>\';
+    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml.zip">Download&nbsp;ScML</a>\';
 } else {
 }
 if (file_exists($scmlMergedDownload)) {
-    echo \'<br /><a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml-merged.zip">Download Merged&nbsp;SCML</a>\';
+    echo \'<br /><a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml-merged.zip">Download Merged&nbsp;ScML</a>\';
 } else {
 }
 ?>';
@@ -122,7 +130,7 @@ if (file_exists($scmlMergedDownload)) {
   $handler->display->display_options['fields']['php_4']['id'] = 'php_4';
   $handler->display->display_options['fields']['php_4']['table'] = 'views';
   $handler->display->display_options['fields']['php_4']['field'] = 'php';
-  $handler->display->display_options['fields']['php_4']['label'] = 'SCML to eSCML';
+  $handler->display->display_options['fields']['php_4']['label'] = 'ScML to eScML';
   $handler->display->display_options['fields']['php_4']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_4']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_4']['php_output'] = '<?php
@@ -133,7 +141,7 @@ echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_
 echo \'<input type="submit" value="Process" />\';
 echo \'</form>\';
 if (file_exists($escmlDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-escml.zip">Download eSCML</a>\';
+    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-escml.zip">Download eScML</a>\';
 } else {
 }
 ?>';
@@ -164,12 +172,13 @@ if (file_exists($idttDownload)) {
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'ePub';
+  $handler->display->display_options['fields']['php']['label'] = 'EPUB';
   $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php
 $epubDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub\';
 $mobiDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.mobi\';
+$epub3Download = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub3/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub\';
 echo \'<form action="/sites/all/libraries/actions/escml2epub.php" method="post">\';
 echo \'<input type="hidden" id="client" name="client" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
@@ -180,15 +189,32 @@ echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="css" name="css" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="no" />\';
-echo \'<input type="hidden" id="job" name="job" value="e" />\';
-echo \'<input type="submit" value="Process" />\';
+echo \'<input type="hidden" id="version" name="version" value="2" />\';
+echo \'<input type="submit" value="Process EPUB2" />\';
+echo \'</form>\';
+echo \'<form action="/sites/all/libraries/actions/escml2epub.php" method="post">\';
+echo \'<input type="hidden" id="client" name="client" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="title" name="title" value="\' . $row->title . \'" />\';
+echo \'<input type="hidden" id="isbn" name="isbn" value="\' . $data->field_wfdm_project_isbn[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="publisher" name="publisher" value="\' . $data->field_wfdm_project_publisher[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field_wfdm_project_creator[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="css" name="css" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="backlink" name="backlink" value="no" />\';
+echo \'<input type="hidden" id="version" name="version" value="3" />\';
+echo \'<input type="submit" value="Process EPUB3" />\';
 echo \'</form>\';
 if (file_exists($epubDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub">Download&nbsp;ePub</a><br />\';
+    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub">Download&nbsp;EPUB</a><br />\';
 } else {
 }
 if (file_exists($mobiDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.mobi">Download&nbsp;Mobi</a>\';
+    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.mobi">Download&nbsp;Mobi</a><br />\';
+} else {
+}
+if (file_exists($epub3Download)) {
+    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub3/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub">Download&nbsp;EPUB3</a><br />\';
 } else {
 }
 ?>';
