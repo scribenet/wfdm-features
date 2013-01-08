@@ -602,7 +602,7 @@ function wfdm_field_default_fields() {
       'settings' => array(
         'description_field' => 0,
         'file_directory' => '',
-        'file_extensions' => 'idtt',
+        'file_extensions' => 'xml',
         'filefield_paths' => array(
           'active_updating' => 0,
           'file_name' => array(
@@ -617,7 +617,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/idtt',
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/indd',
           ),
           'retroactive_update' => 0,
         ),
