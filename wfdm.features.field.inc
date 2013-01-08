@@ -87,7 +87,7 @@ function wfdm_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => 0,
+        'weight' => '11',
       ),
     ),
   );
@@ -161,7 +161,7 @@ function wfdm_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'text_textfield',
-        'weight' => 1,
+        'weight' => '1',
       ),
     ),
   );
@@ -199,7 +199,7 @@ function wfdm_field_default_fields() {
       'bundle' => 'wfdm_project',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'Please enter the authors or editors for this title.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -223,20 +223,21 @@ function wfdm_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'wfdm_project_creator',
-      'label' => 'Creator',
-      'required' => TRUE,
+      'label' => 'Author/Editor',
+      'required' => 1,
       'settings' => array(
-        'text_processing' => 0,
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'type' => 'text',
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'size' => 60,
+          'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => 3,
+        'weight' => '3',
       ),
     ),
   );
@@ -333,7 +334,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => 5,
+        'weight' => '6',
       ),
     ),
   );
@@ -430,7 +431,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => 6,
+        'weight' => '8',
       ),
     ),
   );
@@ -534,12 +535,12 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_miw',
-        'weight' => 7,
+        'weight' => '10',
       ),
     ),
   );
 
-// Exported field: 'node-wfdm_project-wfdm_project_scml'.
+  // Exported field: 'node-wfdm_project-wfdm_project_indesign'.
   $fields['node-wfdm_project-wfdm_project_indesign'] = array(
     'field_config' => array(
       'active' => '1',
@@ -631,7 +632,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => 6,
+        'weight' => '9',
       ),
     ),
   );
@@ -706,7 +707,7 @@ function wfdm_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => 2,
+        'weight' => '2',
       ),
     ),
   );
@@ -781,7 +782,7 @@ function wfdm_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'text_textfield',
-        'weight' => 4,
+        'weight' => '5',
       ),
     ),
   );
@@ -878,7 +879,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => 6,
+        'weight' => '7',
       ),
     ),
   );
@@ -953,7 +954,7 @@ function wfdm_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'text_textfield',
-        'weight' => 4,
+        'weight' => '4',
       ),
     ),
   );
@@ -1023,17 +1024,20 @@ function wfdm_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Author/Editor');
   t('Client Code');
-  t('Creator');
   t('Description');
   t('ISBN-13');
   t('Images');
+  t('InDesign XML');
   t('Please enter the 13-character ISBN without dashes.');
+  t('Please enter the authors or editors for this title.');
   t('Please upload your docx source files here. These must be composed with styles created by Scribe Inc.');
   t('Project Code');
   t('Publisher');
   t('SCML');
   t('Subject');
+  t('This area is for uploading InDesign XML for conversion.');
   t('This area is for uploading eSCML for conversion.');
   t('This area is for uploading flat SCML for conversion.');
   t('Upload your images here');

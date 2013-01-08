@@ -22,12 +22,9 @@ function wfdm_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['title'] = 'Publisher';
+  $handler->display->display_options['title'] = 'Digital Hub';
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    4 => '4',
-  );
+  $handler->display->display_options['access']['type'] = 'none';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
@@ -54,6 +51,13 @@ function wfdm_views_default_views() {
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
   $handler->display->display_options['relationships']['uid']['required'] = TRUE;
+  /* Field: Content: Nid */
+  $handler->display->display_options['fields']['nid']['id'] = 'nid';
+  $handler->display->display_options['fields']['nid']['table'] = 'node';
+  $handler->display->display_options['fields']['nid']['field'] = 'nid';
+  $handler->display->display_options['fields']['nid']['label'] = '';
+  $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
   /* Field: User: Client Code */
   $handler->display->display_options['fields']['field_client_code']['id'] = 'field_client_code';
   $handler->display->display_options['fields']['field_client_code']['table'] = 'field_data_field_client_code';
@@ -66,14 +70,22 @@ function wfdm_views_default_views() {
   $handler->display->display_options['fields']['wfdm_project_code']['id'] = 'wfdm_project_code';
   $handler->display->display_options['fields']['wfdm_project_code']['table'] = 'field_data_wfdm_project_code';
   $handler->display->display_options['fields']['wfdm_project_code']['field'] = 'wfdm_project_code';
+  $handler->display->display_options['fields']['wfdm_project_code']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['wfdm_project_code']['alter']['path'] = 'node/[nid]';
+  $handler->display->display_options['fields']['wfdm_project_code']['alter']['absolute'] = TRUE;
+  $handler->display->display_options['fields']['wfdm_project_code']['alter']['alt'] = 'Click to view project information';
+  $handler->display->display_options['fields']['wfdm_project_code']['alter']['target'] = '_blank';
   $handler->display->display_options['fields']['wfdm_project_code']['element_label_colon'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Field: Content: ISBN-13 */
   $handler->display->display_options['fields']['wfdm_project_isbn']['id'] = 'wfdm_project_isbn';
   $handler->display->display_options['fields']['wfdm_project_isbn']['table'] = 'field_data_wfdm_project_isbn';
@@ -86,7 +98,7 @@ function wfdm_views_default_views() {
   $handler->display->display_options['fields']['wfdm_project_publisher']['field'] = 'wfdm_project_publisher';
   $handler->display->display_options['fields']['wfdm_project_publisher']['exclude'] = TRUE;
   $handler->display->display_options['fields']['wfdm_project_publisher']['element_label_colon'] = FALSE;
-  /* Field: Content: Creator */
+  /* Field: Content: Author/Editor */
   $handler->display->display_options['fields']['wfdm_project_creator']['id'] = 'wfdm_project_creator';
   $handler->display->display_options['fields']['wfdm_project_creator']['table'] = 'field_data_wfdm_project_creator';
   $handler->display->display_options['fields']['wfdm_project_creator']['field'] = 'wfdm_project_creator';
@@ -151,7 +163,7 @@ if (file_exists($escmlDownload)) {
   $handler->display->display_options['fields']['php_1']['id'] = 'php_1';
   $handler->display->display_options['fields']['php_1']['table'] = 'views';
   $handler->display->display_options['fields']['php_1']['field'] = 'php';
-  $handler->display->display_options['fields']['php_1']['label'] = 'InDesign';
+  $handler->display->display_options['fields']['php_1']['label'] = 'ScML to InDesign';
   $handler->display->display_options['fields']['php_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
@@ -169,10 +181,31 @@ if (file_exists($idttDownload)) {
   $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
   /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_3']['id'] = 'php_3';
+  $handler->display->display_options['fields']['php_3']['table'] = 'views';
+  $handler->display->display_options['fields']['php_3']['field'] = 'php';
+  $handler->display->display_options['fields']['php_3']['label'] = 'InDesign to ScML';
+  $handler->display->display_options['fields']['php_3']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php_3']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_3']['php_output'] = '<?php
+$scmlDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-merged.zip\';
+echo \'<form action="/sites/all/libraries/actions/indd2scml.php" method="post">\';
+echo \'<input type="hidden" id="client" name="client" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="submit" value="Process" />\';
+echo \'</form>\';
+if (file_exists($scmlDownload)) {
+    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-idtt.zip">Download&nbsp;ScML</a>\';
+} else {
+}
+?>';
+  $handler->display->display_options['fields']['php_3']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_3']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
   $handler->display->display_options['fields']['php']['id'] = 'php';
   $handler->display->display_options['fields']['php']['table'] = 'views';
   $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = 'EPUB';
+  $handler->display->display_options['fields']['php']['label'] = 'E-book';
   $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php
@@ -326,7 +359,7 @@ if (file_exists($epub3Download)) {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['path'] = 'publisher';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Publisher';
+  $handler->display->display_options['menu']['title'] = 'Digital Hub';
   $handler->display->display_options['menu']['weight'] = '1';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
@@ -358,7 +391,7 @@ if (file_exists($epub3Download)) {
   $handler->display->display_options['fields']['wfdm_project_publisher']['field'] = 'wfdm_project_publisher';
   $handler->display->display_options['fields']['wfdm_project_publisher']['exclude'] = TRUE;
   $handler->display->display_options['fields']['wfdm_project_publisher']['element_label_colon'] = FALSE;
-  /* Field: Content: Creator */
+  /* Field: Content: Author/Editor */
   $handler->display->display_options['fields']['wfdm_project_creator']['id'] = 'wfdm_project_creator';
   $handler->display->display_options['fields']['wfdm_project_creator']['table'] = 'field_data_wfdm_project_creator';
   $handler->display->display_options['fields']['wfdm_project_creator']['field'] = 'wfdm_project_creator';
