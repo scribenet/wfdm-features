@@ -87,7 +87,7 @@ function wfdm_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '11',
+        'weight' => '9',
       ),
     ),
   );
@@ -206,7 +206,7 @@ function wfdm_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -238,6 +238,103 @@ function wfdm_field_default_fields() {
         ),
         'type' => 'text_textfield',
         'weight' => '3',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-wfdm_project-wfdm_project_css'.
+  $fields['node-wfdm_project-wfdm_project_css'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'wfdm_project_css',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'wfdm_project',
+      'deleted' => '0',
+      'description' => 'Please upload your custom project CSS here. It must be named client-code.css',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_table',
+          'weight' => '6',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'wfdm_project_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'wfdm_project_css',
+      'label' => 'Project CSS',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'css',
+        'filefield_paths' => array(
+          'active_updating' => 0,
+          'file_name' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+          ),
+          'file_path' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/input',
+          ),
+          'retroactive_update' => 0,
+        ),
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'file',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_generic',
+        'weight' => '2',
       ),
     ),
   );
@@ -283,7 +380,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -334,7 +431,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '6',
+        'weight' => '4',
       ),
     ),
   );
@@ -380,7 +477,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '7',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -431,7 +528,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '8',
+        'weight' => '6',
       ),
     ),
   );
@@ -479,7 +576,7 @@ function wfdm_field_default_fields() {
             'image_style' => 'thumbnail',
           ),
           'type' => 'image',
-          'weight' => '8',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -535,7 +632,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_miw',
-        'weight' => '10',
+        'weight' => '8',
       ),
     ),
   );
@@ -581,7 +678,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '8',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -632,7 +729,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '9',
+        'weight' => '7',
       ),
     ),
   );
@@ -752,7 +849,7 @@ function wfdm_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -828,7 +925,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '7',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -879,7 +976,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '7',
+        'weight' => '5',
       ),
     ),
   );
@@ -1032,7 +1129,9 @@ function wfdm_field_default_fields() {
   t('InDesign XML');
   t('Please enter the 13-character ISBN without dashes.');
   t('Please enter the authors or editors for this title.');
+  t('Please upload your custom project CSS here. It must be named client-code.css');
   t('Please upload your docx source files here. These must be composed with styles created by Scribe Inc.');
+  t('Project CSS');
   t('Project Code');
   t('Publisher');
   t('SCML');

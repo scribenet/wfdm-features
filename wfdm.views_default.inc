@@ -36,7 +36,8 @@ function wfdm_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<p>The Publisher allows you to generate a variety of formats from within the system. Currently, the system will generate Scribe Markup Language (ScML), InDesign text tagged, ePub and Mobi files.  We are performing final testing on our ePub 3 module and will release that shortly.  From there, Scribe has an ambitious development plan for Version 1.1. As new standards develop, so will the output capacity.</p>';
+  $handler->display->display_options['header']['area']['content'] = '<p><a href="/node/add/wfdm-project">Create Project</a></p>
+<p>The Publisher allows you to generate a variety of formats from within the system. Currently, the system will generate Scribe Markup Language (ScML), InDesign text tagged, ePub and Mobi files.  We are performing final testing on our ePub 3 module and will release that shortly.  From there, Scribe has an ambitious development plan for Version 1.1. As new standards develop, so will the output capacity.</p>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   /* No results behavior: Global: Text area */
   $handler->display->display_options['empty']['area']['id'] = 'area';
@@ -44,7 +45,8 @@ function wfdm_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'No titles';
   $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>You don\'t have any active titles in the system right now. Please create one, or contact support for help.</p>';
+  $handler->display->display_options['empty']['area']['content'] = '<p>You don\'t have any active titles in the system right now. Please create one, or contact support for help.</p>
+<a href="/node/add/wfdm-project">Create Project</a>';
   $handler->display->display_options['empty']['area']['format'] = 'full_html';
   /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -367,6 +369,7 @@ if (file_exists($epub3Download)) {
   /* Display: Processor */
   $handler = $view->new_display('page', 'Processor', 'page_1');
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Project Code */
   $handler->display->display_options['fields']['wfdm_project_code']['id'] = 'wfdm_project_code';
@@ -507,6 +510,13 @@ if (file_exists($mobiDownload)) {
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Field: Content: Word documents */
+  $handler->display->display_options['fields']['wfdm_project_docx']['id'] = 'wfdm_project_docx';
+  $handler->display->display_options['fields']['wfdm_project_docx']['table'] = 'field_data_wfdm_project_docx';
+  $handler->display->display_options['fields']['wfdm_project_docx']['field'] = 'wfdm_project_docx';
+  $handler->display->display_options['fields']['wfdm_project_docx']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['wfdm_project_docx']['type'] = 'file_table';
+  $handler->display->display_options['fields']['wfdm_project_docx']['delta_offset'] = '0';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
@@ -517,7 +527,13 @@ if (file_exists($mobiDownload)) {
   $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
-  $handler->display->display_options['path'] = 'publisher/process/%';
+  $handler->display->display_options['path'] = 'publisher/process/%/source';
+  $handler->display->display_options['menu']['type'] = 'default tab';
+  $handler->display->display_options['menu']['title'] = 'Source';
+  $handler->display->display_options['menu']['weight'] = '0';
+  $handler->display->display_options['menu']['context'] = 0;
+  $handler->display->display_options['tab_options']['title'] = 'Test';
+  $handler->display->display_options['tab_options']['weight'] = '0';
   $export['projects'] = $view;
 
   return $export;
