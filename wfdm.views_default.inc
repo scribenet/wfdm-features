@@ -510,10 +510,11 @@ if (file_exists($mobiDownload)) {
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Field: Content: Word documents */
+  /* Field: Content: Word Documents */
   $handler->display->display_options['fields']['wfdm_project_docx']['id'] = 'wfdm_project_docx';
   $handler->display->display_options['fields']['wfdm_project_docx']['table'] = 'field_data_wfdm_project_docx';
   $handler->display->display_options['fields']['wfdm_project_docx']['field'] = 'wfdm_project_docx';
+  $handler->display->display_options['fields']['wfdm_project_docx']['label'] = 'Word documents';
   $handler->display->display_options['fields']['wfdm_project_docx']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['wfdm_project_docx']['type'] = 'file_table';
   $handler->display->display_options['fields']['wfdm_project_docx']['delta_offset'] = '0';

@@ -87,7 +87,7 @@ function wfdm_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '9',
+        'weight' => '14',
       ),
     ),
   );
@@ -125,7 +125,7 @@ function wfdm_field_default_fields() {
       'bundle' => 'wfdm_project',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => '',
+      'description' => 'This must follow the scheme [three-letter-client-code]-projectname.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -150,15 +150,16 @@ function wfdm_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'wfdm_project_code',
       'label' => 'Project Code',
-      'required' => TRUE,
+      'required' => 1,
       'settings' => array(
-        'text_processing' => 0,
+        'text_processing' => '0',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'size' => 60,
+          'size' => '60',
         ),
         'type' => 'text_textfield',
         'weight' => '1',
@@ -206,7 +207,7 @@ function wfdm_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -237,7 +238,7 @@ function wfdm_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '3',
+        'weight' => '2',
       ),
     ),
   );
@@ -246,7 +247,7 @@ function wfdm_field_default_fields() {
   $fields['node-wfdm_project-wfdm_project_css'] = array(
     'field_config' => array(
       'active' => '1',
-      'cardinality' => '1',
+      'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
       'field_name' => 'wfdm_project_css',
@@ -329,12 +330,12 @@ function wfdm_field_default_fields() {
       ),
       'widget' => array(
         'active' => 1,
-        'module' => 'file',
+        'module' => 'multiupload_filefield_widget',
         'settings' => array(
           'progress_indicator' => 'throbber',
         ),
-        'type' => 'file_generic',
-        'weight' => '2',
+        'type' => 'file_mfw',
+        'weight' => '8',
       ),
     ),
   );
@@ -380,7 +381,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '7',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -397,7 +398,7 @@ function wfdm_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'wfdm_project_docx',
-      'label' => 'Word documents',
+      'label' => 'Word Documents',
       'required' => 0,
       'settings' => array(
         'description_field' => 0,
@@ -431,7 +432,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '4',
+        'weight' => '9',
       ),
     ),
   );
@@ -477,7 +478,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '8',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -528,7 +529,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '6',
+        'weight' => '11',
       ),
     ),
   );
@@ -576,7 +577,7 @@ function wfdm_field_default_fields() {
             'image_style' => 'thumbnail',
           ),
           'type' => 'image',
-          'weight' => '10',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -632,7 +633,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_miw',
-        'weight' => '8',
+        'weight' => '13',
       ),
     ),
   );
@@ -678,7 +679,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '11',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -729,7 +730,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '7',
+        'weight' => '12',
       ),
     ),
   );
@@ -767,7 +768,7 @@ function wfdm_field_default_fields() {
       'bundle' => 'wfdm_project',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Please enter the 13-character ISBN without dashes.',
+      'description' => 'Please enter the 13-character Print ISBN without dashes.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -792,7 +793,7 @@ function wfdm_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'wfdm_project_isbn',
       'label' => 'ISBN-13',
-      'required' => 1,
+      'required' => 0,
       'settings' => array(
         'text_processing' => '0',
         'user_register_form' => FALSE,
@@ -804,7 +805,157 @@ function wfdm_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '5',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-wfdm_project-wfdm_project_isbn_epub'.
+  $fields['node-wfdm_project-wfdm_project_isbn_epub'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'wfdm_project_isbn_epub',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '60',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'wfdm_project',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Please enter the 13-character EPUB ISBN without dashes. This is required for e-book output.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'wfdm_project_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'wfdm_project_isbn_epub',
+      'label' => 'ISBN-13 EPUB',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '6',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-wfdm_project-wfdm_project_isbn_mobi'.
+  $fields['node-wfdm_project-wfdm_project_isbn_mobi'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'wfdm_project_isbn_mobi',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'text',
+      'settings' => array(
+        'max_length' => '60',
+      ),
+      'translatable' => '0',
+      'type' => 'text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'wfdm_project',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Please enter the 13-character Mobi ISBN without dashes. Only required if your e-book outputs required different ISBNs.',
+      'display' => array(
+        'default' => array(
+          'label' => 'inline',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'wfdm_project_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'wfdm_project_isbn_mobi',
+      'label' => 'ISBN-13 Mobi',
+      'required' => 0,
+      'settings' => array(
+        'text_processing' => '0',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'size' => '60',
+        ),
+        'type' => 'text_textfield',
+        'weight' => '7',
       ),
     ),
   );
@@ -849,7 +1000,7 @@ function wfdm_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -879,7 +1030,7 @@ function wfdm_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'text_textfield',
-        'weight' => '5',
+        'weight' => '4',
       ),
     ),
   );
@@ -925,7 +1076,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '9',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -976,7 +1127,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '5',
+        'weight' => '10',
       ),
     ),
   );
@@ -1051,7 +1202,7 @@ function wfdm_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'text_textfield',
-        'weight' => '4',
+        'weight' => '3',
       ),
     ),
   );
@@ -1125,9 +1276,13 @@ function wfdm_field_default_fields() {
   t('Client Code');
   t('Description');
   t('ISBN-13');
+  t('ISBN-13 EPUB');
+  t('ISBN-13 Mobi');
   t('Images');
   t('InDesign XML');
-  t('Please enter the 13-character ISBN without dashes.');
+  t('Please enter the 13-character EPUB ISBN without dashes. This is required for e-book output.');
+  t('Please enter the 13-character Mobi ISBN without dashes. Only required if your e-book outputs required different ISBNs.');
+  t('Please enter the 13-character Print ISBN without dashes.');
   t('Please enter the authors or editors for this title.');
   t('Please upload your custom project CSS here. It must be named client-code.css');
   t('Please upload your docx source files here. These must be composed with styles created by Scribe Inc.');
@@ -1139,8 +1294,9 @@ function wfdm_field_default_fields() {
   t('This area is for uploading InDesign XML for conversion.');
   t('This area is for uploading eSCML for conversion.');
   t('This area is for uploading flat SCML for conversion.');
+  t('This must follow the scheme [three-letter-client-code]-projectname.');
   t('Upload your images here');
-  t('Word documents');
+  t('Word Documents');
   t('eSCML');
 
   return $fields;
