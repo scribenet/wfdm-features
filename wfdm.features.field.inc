@@ -87,7 +87,7 @@ function wfdm_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '14',
+        'weight' => '15',
       ),
     ),
   );
@@ -284,7 +284,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '6',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -381,7 +381,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '6',
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -437,7 +437,7 @@ function wfdm_field_default_fields() {
     ),
   );
 
-// Exported field: 'node-wfdm_project-wfdm_project_docx'.
+  // Exported field: 'node-wfdm_project-wfdm_project_downloads'.
   $fields['node-wfdm_project-wfdm_project_downloads'] = array(
     'field_config' => array(
       'active' => '1',
@@ -471,14 +471,14 @@ function wfdm_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'wfdm_project',
       'deleted' => '0',
-      'description' => 'These field is used to hold archived downloads.',
+      'description' => 'This field is used to hold archived downloads.',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '6',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -500,7 +500,7 @@ function wfdm_field_default_fields() {
       'settings' => array(
         'description_field' => 0,
         'file_directory' => '',
-        'file_extensions' => 'zip',
+        'file_extensions' => 'zip epub mobi',
         'filefield_paths' => array(
           'active_updating' => 0,
           'file_name' => array(
@@ -529,7 +529,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '9',
+        'weight' => '14',
       ),
     ),
   );
@@ -575,7 +575,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '7',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -776,7 +776,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '8',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -947,7 +947,7 @@ function wfdm_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '2',
+          'weight' => '3',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1372,6 +1372,7 @@ function wfdm_field_default_fields() {
   t('Author/Editor');
   t('Client Code');
   t('Description');
+  t('Downloads');
   t('ISBN-13');
   t('ISBN-13 EPUB');
   t('ISBN-13 Mobi');
@@ -1391,6 +1392,7 @@ function wfdm_field_default_fields() {
   t('This area is for uploading InDesign XML for conversion.');
   t('This area is for uploading eSCML for conversion.');
   t('This area is for uploading flat SCML for conversion.');
+  t('This field is used to hold archived downloads.');
   t('This must follow the scheme [three-letter-client-code]-projectname.');
   t('Upload your images here');
   t('Word Documents');
