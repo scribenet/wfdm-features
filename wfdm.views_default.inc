@@ -39,7 +39,12 @@ function wfdm_views_default_views() {
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['content'] = '<form method="post" id="project_launch" action="/node/add/wfdm-project?client_code=hcp">
+  $handler->display->display_options['header']['area']['empty'] = TRUE;
+  $handler->display->display_options['header']['area']['content'] = '<?php
+  $roles = $GLOBALS[\'user\']->roles;
+  if(in_array(\'admin\', $roles) OR in_array(\'sysadmin\', $roles)):
+?>
+<form method="post" id="project_launch" action="/node/add/wfdm-project?client_code=hcp">
 <label for="client_code">Choose the client</label>
 <select id="client_code">
 <option value="hcp" selected="selected">hcp - HarperCollins</option>
@@ -53,17 +58,12 @@ jQuery("#client_code").change(function() {
   jQuery("#project_launch").attr("action", "/node/add/wfdm-project?client_code=" + client_code + "&destination=publisher");
 });
 </script>
-<p>The Publisher allows you to generate a variety of formats from within the system. Currently, the system will generate Scribe Markup Language (ScML), InDesign text tagged, ePub and Mobi files.  We are performing final testing on our ePub 3 module and will release that shortly.  From there, Scribe has an ambitious development plan for Version 1.1. As new standards develop, so will the output capacity.</p>';
-  $handler->display->display_options['header']['area']['format'] = 'full_html';
-  /* No results behavior: Global: Text area */
-  $handler->display->display_options['empty']['area']['id'] = 'area';
-  $handler->display->display_options['empty']['area']['table'] = 'views';
-  $handler->display->display_options['empty']['area']['field'] = 'area';
-  $handler->display->display_options['empty']['area']['label'] = 'No titles';
-  $handler->display->display_options['empty']['area']['empty'] = TRUE;
-  $handler->display->display_options['empty']['area']['content'] = '<p>You don\'t have any active titles in the system right now. Please create one, or contact support for help.</p>
-<a href="http://hub.scribenet.com/node/add/wfdm-project">Create Project</a>';
-  $handler->display->display_options['empty']['area']['format'] = 'full_html';
+<?php else: ?>
+<p>The Publisher allows you to generate a variety of formats from within the system. Currently, the system will generate Scribe Markup Language (ScML), InDesign text tagged, ePub and Mobi files.  We are performing final testing on our ePub 3 module and will release that shortly.  From there, Scribe has an ambitious development plan for Version 1.1. As new standards develop, so will the output capacity.</p>
+<p><a href="/node/add/wfdm-project?client_code=[field_client_code]&destination=publisher">Create Project</a></p>
+<?php endif; ?>';
+  $handler->display->display_options['header']['area']['format'] = 'php_code';
+  $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
