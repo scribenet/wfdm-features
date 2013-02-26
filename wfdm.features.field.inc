@@ -87,7 +87,7 @@ function wfdm_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '15',
+        'weight' => '14',
       ),
     ),
   );
@@ -284,7 +284,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '5',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -321,7 +321,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/input',
+            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/input',
           ),
           'retroactive_update' => 0,
         ),
@@ -381,7 +381,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '4',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -418,7 +418,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/docx',
+            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/docx',
           ),
           'retroactive_update' => 0,
         ),
@@ -433,103 +433,6 @@ function wfdm_field_default_fields() {
         ),
         'type' => 'file_mfw',
         'weight' => '9',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-wfdm_project-wfdm_project_downloads'.
-  $fields['node-wfdm_project-wfdm_project_downloads'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'wfdm_project_downloads',
-      'foreign keys' => array(
-        'fid' => array(
-          'columns' => array(
-            'fid' => 'fid',
-          ),
-          'table' => 'file_managed',
-        ),
-      ),
-      'indexes' => array(
-        'fid' => array(
-          0 => 'fid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'file',
-      'settings' => array(
-        'display_default' => 0,
-        'display_field' => 0,
-        'uri_scheme' => 'public',
-      ),
-      'translatable' => '0',
-      'type' => 'file',
-    ),
-    'field_instance' => array(
-      'bundle' => 'wfdm_project',
-      'deleted' => '0',
-      'description' => 'This field is used to hold archived downloads.',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_table',
-          'weight' => '11',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'wfdm_project_list' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'wfdm_project_downloads',
-      'label' => 'Downloads',
-      'required' => 0,
-      'settings' => array(
-        'description_field' => 0,
-        'file_directory' => '',
-        'file_extensions' => 'zip epub mobi',
-        'filefield_paths' => array(
-          'active_updating' => 0,
-          'file_name' => array(
-            'options' => array(
-              'pathauto' => FALSE,
-              'transliterate' => 0,
-            ),
-            'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
-          ),
-          'file_path' => array(
-            'options' => array(
-              'pathauto' => FALSE,
-              'transliterate' => 0,
-            ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/downloads',
-          ),
-          'retroactive_update' => 0,
-        ),
-        'max_filesize' => '',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'multiupload_filefield_widget',
-        'settings' => array(
-          'progress_indicator' => 'throbber',
-        ),
-        'type' => 'file_mfw',
-        'weight' => '14',
       ),
     ),
   );
@@ -575,7 +478,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -612,7 +515,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/escml',
+            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/escml',
           ),
           'retroactive_update' => 0,
         ),
@@ -712,7 +615,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/input/images',
+            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/input/images',
           ),
           'retroactive_update' => 0,
         ),
@@ -776,7 +679,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '9',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -813,7 +716,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/indd',
+            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/indd',
           ),
           'retroactive_update' => 0,
         ),
@@ -947,7 +850,7 @@ function wfdm_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '3',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1210,7 +1113,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/scml',
+            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/scml',
           ),
           'retroactive_update' => 0,
         ),
@@ -1372,7 +1275,6 @@ function wfdm_field_default_fields() {
   t('Author/Editor');
   t('Client Code');
   t('Description');
-  t('Downloads');
   t('ISBN-13');
   t('ISBN-13 EPUB');
   t('ISBN-13 Mobi');
@@ -1392,7 +1294,6 @@ function wfdm_field_default_fields() {
   t('This area is for uploading InDesign XML for conversion.');
   t('This area is for uploading eSCML for conversion.');
   t('This area is for uploading flat SCML for conversion.');
-  t('This field is used to hold archived downloads.');
   t('This must follow the scheme [three-letter-client-code]-projectname.');
   t('Upload your images here');
   t('Word Documents');
