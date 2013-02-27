@@ -19,6 +19,7 @@ features[ctools][] = field_validation:default_field_validation_rules:2
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
 features[field][] = node-wfdm_project-body
+features[field][] = node-wfdm_project-wfdm_project_client
 features[field][] = node-wfdm_project-wfdm_project_code
 features[field][] = node-wfdm_project-wfdm_project_creator
 features[field][] = node-wfdm_project-wfdm_project_css
