@@ -124,10 +124,11 @@ function wfdm_views_default_views() {
   $handler->display->display_options['fields']['php_2']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_2']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_2']['php_output'] = '<?php
-echo \'<form action="/docx2scml.php?destination=publisher" method="post">\';
+echo \'<form action="/transmog.php?destination=publisher" method="post">\';
 echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
 echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="job" name="job" value="docx2scml" />\';
 echo \'<input type="submit" value="Process" />\';
 echo \'</form>\';
 ?>';

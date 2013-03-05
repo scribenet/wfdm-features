@@ -512,7 +512,7 @@ function wfdm_field_default_fields() {
     ),
   );
 
-// Exported field: 'node-wfdm_project-wfdm_project_downloads'.
+  // Exported field: 'node-wfdm_project-wfdm_project_downloads'.
   $fields['node-wfdm_project-wfdm_project_downloads'] = array(
     'field_config' => array(
       'active' => '1',
@@ -1447,6 +1447,7 @@ function wfdm_field_default_fields() {
   t('Author/Editor');
   t('Client Code');
   t('Description');
+  t('Downloads');
   t('ISBN-13');
   t('ISBN-13 EPUB');
   t('ISBN-13 Mobi');
@@ -1470,6 +1471,7 @@ function wfdm_field_default_fields() {
   t('This must follow the scheme [three-letter-client-code]-projectname.');
   t('Upload your images here');
   t('Word Documents');
+  t('Your downloads will appear here after you run the converter.');
   t('eSCML');
 
   return $fields;
