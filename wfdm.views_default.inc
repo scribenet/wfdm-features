@@ -40,29 +40,9 @@ function wfdm_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<?php
-  $roles = $GLOBALS[\'user\']->roles;
-  if(in_array(\'admin\', $roles) OR in_array(\'sysadmin\', $roles)):
-?>
-<form method="post" id="project_launch" action="/node/add/wfdm-project?client_code=hcp">
-<label for="client_code">Choose the client</label>
-<select id="client_code">
-<option value="hcp" selected="selected">hcp - HarperCollins</option>
-<option value="bas">bas - Biblical Archaeology Society</option>
-</select>
-<input type="submit" value="Create project" />
-</form>
-<script type="text/javascript">
-jQuery("#client_code").change(function() {
-  var client_code= jQuery(this).val();
-  jQuery("#project_launch").attr("action", "/node/add/wfdm-project?client_code=" + client_code + "&destination=publisher");
-});
-</script>
-<?php else: ?>
-<p>The Publisher allows you to generate a variety of formats from within the system. Currently, the system will generate Scribe Markup Language (ScML), InDesign text tagged, ePub and Mobi files.  We are performing final testing on our ePub 3 module and will release that shortly.  From there, Scribe has an ambitious development plan for Version 1.1. As new standards develop, so will the output capacity.</p>
-<p><a href="/node/add/wfdm-project?client_code=[field_client_code]&destination=publisher">Create Project</a></p>
-<?php endif; ?>';
-  $handler->display->display_options['header']['area']['format'] = 'php_code';
+  $handler->display->display_options['header']['area']['content'] = '<p>The Publisher allows you to generate a variety of formats from within the system. Currently, the system will generate Scribe Markup Language (ScML), InDesign text tagged, ePub and Mobi files.  We are performing final testing on our ePub 3 module and will release that shortly.  From there, Scribe has an ambitious development plan for Version 1.1. As new standards develop, so will the output capacity.</p>
+<p><a href="/node/add/wfdm-project?destination=publisher">Create Project</a></p>';
+  $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
   /* Relationship: Content: Author */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
@@ -84,6 +64,13 @@ jQuery("#client_code").change(function() {
   $handler->display->display_options['fields']['field_client_code']['label'] = '';
   $handler->display->display_options['fields']['field_client_code']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_client_code']['element_label_colon'] = FALSE;
+  /* Field: Content: Client Code */
+  $handler->display->display_options['fields']['wfdm_project_client']['id'] = 'wfdm_project_client';
+  $handler->display->display_options['fields']['wfdm_project_client']['table'] = 'field_data_wfdm_project_client';
+  $handler->display->display_options['fields']['wfdm_project_client']['field'] = 'wfdm_project_client';
+  $handler->display->display_options['fields']['wfdm_project_client']['label'] = '';
+  $handler->display->display_options['fields']['wfdm_project_client']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['wfdm_project_client']['element_label_colon'] = FALSE;
   /* Field: Content: Project Code */
   $handler->display->display_options['fields']['wfdm_project_code']['id'] = 'wfdm_project_code';
   $handler->display->display_options['fields']['wfdm_project_code']['table'] = 'field_data_wfdm_project_code';
@@ -137,22 +124,12 @@ jQuery("#client_code").change(function() {
   $handler->display->display_options['fields']['php_2']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_2']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_2']['php_output'] = '<?php
-$scmlDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml.zip\';
-$scmlMergedDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml-merged.zip\';
-echo \'<form action="/docx2scml.php" method="post">\';
+echo \'<form action="/docx2scml.php?destination=publisher" method="post">\';
 echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
-echo \'<input type="hidden" id="client" name="client" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="submit" value="Process" />\';
 echo \'</form>\';
-if (file_exists($scmlDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml.zip">Download&nbsp;ScML</a>\';
-} else {
-}
-if (file_exists($scmlMergedDownload)) {
-    echo \'<br /><a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml-merged.zip">Download Merged&nbsp;ScML</a>\';
-} else {
-}
 ?>';
   $handler->display->display_options['fields']['php_2']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_2']['php_click_sortable'] = '';
@@ -161,17 +138,19 @@ if (file_exists($scmlMergedDownload)) {
   $handler->display->display_options['fields']['php_4']['table'] = 'views';
   $handler->display->display_options['fields']['php_4']['field'] = 'php';
   $handler->display->display_options['fields']['php_4']['label'] = 'ScML to eScML';
+  $handler->display->display_options['fields']['php_4']['exclude'] = TRUE;
   $handler->display->display_options['fields']['php_4']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_4']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_4']['php_output'] = '<?php
-$escmlDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-escml.zip\';
-echo \'<form action="/sites/all/libraries/actions/scml2escml.php" method="post">\';
-echo \'<input type="hidden" id="client" name="client" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+$escmlDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-escml.zip\';
+echo \'<form action="/scml2escml.php" method="post">\';
+echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
+echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="submit" value="Process" />\';
 echo \'</form>\';
 if (file_exists($escmlDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-escml.zip">Download eScML</a>\';
+    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-escml.zip">Download eScML</a>\';
 } else {
 }
 ?>';
@@ -185,16 +164,11 @@ if (file_exists($escmlDownload)) {
   $handler->display->display_options['fields']['php_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
-$idttDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-idtt.zip\';
 echo \'<form action="/sites/all/libraries/actions/scml2idtt.php" method="post">\';
-echo \'<input type="hidden" id="client" name="client" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="submit" value="Process" />\';
 echo \'</form>\';
-if (file_exists($idttDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-idtt.zip">Download&nbsp;IDTT</a>\';
-} else {
-}
 ?>';
   $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_1']['php_click_sortable'] = '';
@@ -206,16 +180,11 @@ if (file_exists($idttDownload)) {
   $handler->display->display_options['fields']['php_3']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_3']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_3']['php_output'] = '<?php
-$scmlDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-merged.zip\';
 echo \'<form action="/sites/all/libraries/actions/indd2scml.php" method="post">\';
-echo \'<input type="hidden" id="client" name="client" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="submit" value="Process" />\';
 echo \'</form>\';
-if (file_exists($scmlDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-idtt.zip">Download&nbsp;ScML</a>\';
-} else {
-}
 ?>';
   $handler->display->display_options['fields']['php_3']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_3']['php_click_sortable'] = '';
@@ -227,50 +196,68 @@ if (file_exists($scmlDownload)) {
   $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php
-$epubDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub\';
-$mobiDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.mobi\';
-$epub3Download = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub3/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub\';
 echo \'<form action="/sites/all/libraries/actions/escml2epub.php" method="post">\';
-echo \'<input type="hidden" id="client" name="client" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="title" name="title" value="\' . $row->title . \'" />\';
 echo \'<input type="hidden" id="isbn" name="isbn" value="\' . $data->field_wfdm_project_isbn[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="publisher" name="publisher" value="\' . $data->field_wfdm_project_publisher[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field_wfdm_project_creator[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
-echo \'<input type="hidden" id="css" name="css" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="no" />\';
 echo \'<input type="hidden" id="version" name="version" value="2" />\';
 echo \'<input type="submit" value="Process EPUB2" />\';
 echo \'</form>\';
 echo \'<form action="/sites/all/libraries/actions/escml2epub.php" method="post">\';
-echo \'<input type="hidden" id="client" name="client" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="title" name="title" value="\' . $row->title . \'" />\';
 echo \'<input type="hidden" id="isbn" name="isbn" value="\' . $data->field_wfdm_project_isbn[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="publisher" name="publisher" value="\' . $data->field_wfdm_project_publisher[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field_wfdm_project_creator[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
-echo \'<input type="hidden" id="css" name="css" value="\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'" />\';
+echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="no" />\';
 echo \'<input type="hidden" id="version" name="version" value="3" />\';
 echo \'<input type="submit" value="Process EPUB3" />\';
 echo \'</form>\';
-if (file_exists($epubDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub">Download&nbsp;EPUB</a><br />\';
-} else {
-}
-if (file_exists($mobiDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.mobi">Download&nbsp;Mobi</a><br />\';
-} else {
-}
-if (file_exists($epub3Download)) {
-    echo \'<a href="../sites/default/files/projects/\' . substr($data->field_wfdm_project_code[0][\'raw\'][\'value\'], 0, 3) . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub3/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub">Download&nbsp;EPUB3</a><br />\';
-} else {
-}
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Field: Global: PHP */
+  $handler->display->display_options['fields']['php_5']['id'] = 'php_5';
+  $handler->display->display_options['fields']['php_5']['table'] = 'views';
+  $handler->display->display_options['fields']['php_5']['field'] = 'php';
+  $handler->display->display_options['fields']['php_5']['label'] = 'Downloads';
+  $handler->display->display_options['fields']['php_5']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['php_5']['use_php_setup'] = 0;
+  $handler->display->display_options['fields']['php_5']['php_output'] = '<?php
+// Check for downloads
+$scmlDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml.zip\';
+$idttDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-idtt.zip\';
+$epubDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub\';
+$mobiDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.mobi\';
+$epub3Download = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub3/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub\';
+// Print the downloads
+if (file_exists($scmlDownload)) {
+    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml.zip">Download&nbsp;ScML</a><br />\';
+}
+if (file_exists($idttDownload)) {
+    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-idtt.zip">Download&nbsp;IDTT</a><br />\';
+}
+if (file_exists($epubDownload)) {
+    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub">Download&nbsp;EPUB</a><br />\';
+}
+if (file_exists($mobiDownload)) {
+    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.mobi">Download&nbsp;Mobi</a><br />\';
+}
+if (file_exists($epub3Download)) {
+    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub3/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub">Download&nbsp;EPUB3</a><br />\';
+}
+?>';
+  $handler->display->display_options['fields']['php_5']['use_php_click_sortable'] = '0';
+  $handler->display->display_options['fields']['php_5']['php_click_sortable'] = '';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

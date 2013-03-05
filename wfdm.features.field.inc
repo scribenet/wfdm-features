@@ -92,7 +92,7 @@ function wfdm_field_default_fields() {
     ),
   );
 
-// Exported field: 'node-wfdm_project-wfdm_project_code'.
+  // Exported field: 'node-wfdm_project-wfdm_project_client'.
   $fields['node-wfdm_project-wfdm_project_client'] = array(
     'field_config' => array(
       'active' => '1',
@@ -116,7 +116,7 @@ function wfdm_field_default_fields() {
       'locked' => '0',
       'module' => 'text',
       'settings' => array(
-        'max_length' => 60,
+        'max_length' => '60',
       ),
       'translatable' => '0',
       'type' => 'text',
@@ -396,7 +396,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/input',
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/input',
           ),
           'retroactive_update' => 0,
         ),
@@ -493,7 +493,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/docx',
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/docx',
           ),
           'retroactive_update' => 0,
         ),
@@ -590,7 +590,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/escml',
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/escml',
           ),
           'retroactive_update' => 0,
         ),
@@ -690,7 +690,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/input/images',
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/input/images',
           ),
           'retroactive_update' => 0,
         ),
@@ -791,7 +791,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/indd',
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/indd',
           ),
           'retroactive_update' => 0,
         ),
@@ -1188,7 +1188,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-page:query:client_code]/[node:wfdm_project_code]/scml',
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/scml',
           ),
           'retroactive_update' => 0,
         ),
@@ -1366,6 +1366,7 @@ function wfdm_field_default_fields() {
   t('Publisher');
   t('SCML');
   t('Subject');
+  t('The three-letter client code.');
   t('This area is for uploading InDesign XML for conversion.');
   t('This area is for uploading eSCML for conversion.');
   t('This area is for uploading flat SCML for conversion.');
