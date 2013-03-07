@@ -183,7 +183,7 @@ if (file_exists($escmlDownload)) {
   $handler->display->display_options['fields']['php_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
-echo \'<form action="/sites/all/libraries/actions/scml2idtt.php" method="post">\';
+echo \'<form action="/transmog.php" method="post">\';
 echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
