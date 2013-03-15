@@ -31,7 +31,7 @@ function wfdm_default_field_validation_rule() {
   $rule = new stdClass();
   $rule->disabled = FALSE; /* Edit this to true to make a default rule disabled initially */
   $rule->api_version = 2;
-  $rule->rulename = 'Ensure the ISBN is 13 characters';
+  $rule->rulename = 'Ensure the ISBN is 10 or 13 characters';
   $rule->name = 'isbn_13_length';
   $rule->field_name = 'wfdm_project_isbn';
   $rule->col = 'value';
@@ -39,11 +39,18 @@ function wfdm_default_field_validation_rule() {
   $rule->bundle = 'wfdm_project';
   $rule->validator = 'field_validation_length_validator';
   $rule->settings = array(
-    'min' => '13',
+    'min' => '10',
     'max' => '13',
+    'bypass' => 0,
+    'roles' => array(
+      2 => 0,
+      4 => 0,
+      3 => 0,
+      5 => 0,
+    ),
     'errors' => 0,
   );
-  $rule->error_message = 'Your ISBN must only contain 13 characters. If you have entered a value with dashes, please remove them.';
+  $rule->error_message = 'Your ISBN must only contain 10 or 13 characters. If you have entered a value with dashes, please remove them.';
   $export['isbn_13_length'] = $rule;
 
   $rule = new stdClass();

@@ -609,6 +609,200 @@ function wfdm_field_default_fields() {
     ),
   );
 
+// Exported field: 'node-wfdm_project-wfdm_project_epub2'.
+  $fields['node-wfdm_project-wfdm_project_epub2'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'wfdm_project_epub2',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'wfdm_project',
+      'deleted' => '0',
+      'description' => 'This area is for holding EPUB2 files.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_table',
+          'weight' => '7',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'wfdm_project_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'wfdm_project_epub2',
+      'label' => 'EPUB2',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'epub',
+        'filefield_paths' => array(
+          'active_updating' => 0,
+          'file_name' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+          ),
+          'file_path' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/epub2',
+          ),
+          'retroactive_update' => 0,
+        ),
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'multiupload_filefield_widget',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_mfw',
+        'weight' => '11',
+      ),
+    ),
+  );
+
+// Exported field: 'node-wfdm_project-wfdm_project_epub3'.
+  $fields['node-wfdm_project-wfdm_project_epub3'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'wfdm_project_epub3',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'wfdm_project',
+      'deleted' => '0',
+      'description' => 'This area is for holding EPUB3 files.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_table',
+          'weight' => '7',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'wfdm_project_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'wfdm_project_epub3',
+      'label' => 'EPUB3',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'epub',
+        'filefield_paths' => array(
+          'active_updating' => 0,
+          'file_name' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+          ),
+          'file_path' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/epub3',
+          ),
+          'retroactive_update' => 0,
+        ),
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'multiupload_filefield_widget',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_mfw',
+        'weight' => '11',
+      ),
+    ),
+  );
+
   // Exported field: 'node-wfdm_project-wfdm_project_escml'.
   $fields['node-wfdm_project-wfdm_project_escml'] = array(
     'field_config' => array(
@@ -810,14 +1004,14 @@ function wfdm_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-wfdm_project-wfdm_project_indesign'.
-  $fields['node-wfdm_project-wfdm_project_indesign'] = array(
+  // Exported field: 'node-wfdm_project-wfdm_project_indd'.
+  $fields['node-wfdm_project-wfdm_project_indd'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'wfdm_project_indesign',
+      'field_name' => 'wfdm_project_indd',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -867,7 +1061,7 @@ function wfdm_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'wfdm_project_indesign',
+      'field_name' => 'wfdm_project_indd',
       'label' => 'InDesign XML',
       'required' => 0,
       'settings' => array(
@@ -889,6 +1083,103 @@ function wfdm_field_default_fields() {
               'transliterate' => 0,
             ),
             'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/indd',
+          ),
+          'retroactive_update' => 0,
+        ),
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'multiupload_filefield_widget',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_mfw',
+        'weight' => '12',
+      ),
+    ),
+  );
+
+// Exported field: 'node-wfdm_project-wfdm_project_idtt'.
+  $fields['node-wfdm_project-wfdm_project_idtt'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'wfdm_project_idtt',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'wfdm_project',
+      'deleted' => '0',
+      'description' => 'This area is for holding InDesign Tagged Text.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_table',
+          'weight' => '8',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'wfdm_project_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'wfdm_project_idtt',
+      'label' => 'InDesign Tagged Text',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'idtt',
+        'filefield_paths' => array(
+          'active_updating' => 0,
+          'file_name' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+          ),
+          'file_path' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/idtt',
           ),
           'retroactive_update' => 0,
         ),
@@ -940,7 +1231,7 @@ function wfdm_field_default_fields() {
       'bundle' => 'wfdm_project',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Please enter the 13-character Print ISBN without dashes.',
+      'description' => 'Please enter the 10 or 13-character ISBN without dashes.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -964,7 +1255,7 @@ function wfdm_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'wfdm_project_isbn',
-      'label' => 'ISBN-13',
+      'label' => 'ISBN',
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
@@ -1015,7 +1306,7 @@ function wfdm_field_default_fields() {
       'bundle' => 'wfdm_project',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Please enter the 13-character EPUB ISBN without dashes. This is required for e-book output.',
+      'description' => 'Please enter the EPUB ISBN without dashes. This is required for e-book output.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1039,7 +1330,7 @@ function wfdm_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'wfdm_project_isbn_epub',
-      'label' => 'ISBN-13 EPUB',
+      'label' => 'ISBN EPUB',
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
@@ -1090,7 +1381,7 @@ function wfdm_field_default_fields() {
       'bundle' => 'wfdm_project',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Please enter the 13-character Mobi ISBN without dashes. Only required if your e-book outputs required different ISBNs.',
+      'description' => 'Please enter the Mobi/Kindle ISBN without dashes. Only necessary if your e-book outputs require different ISBNs.',
       'display' => array(
         'default' => array(
           'label' => 'inline',
@@ -1114,7 +1405,7 @@ function wfdm_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'wfdm_project_isbn_mobi',
-      'label' => 'ISBN-13 Mobi',
+      'label' => 'ISBN Mobi',
       'required' => 0,
       'settings' => array(
         'text_processing' => '0',
@@ -1128,6 +1419,103 @@ function wfdm_field_default_fields() {
         ),
         'type' => 'text_textfield',
         'weight' => '7',
+      ),
+    ),
+  );
+
+// Exported field: 'node-wfdm_project-wfdm_project_mobi'.
+  $fields['node-wfdm_project-wfdm_project_mobi'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'wfdm_project_mobi',
+      'foreign keys' => array(
+        'fid' => array(
+          'columns' => array(
+            'fid' => 'fid',
+          ),
+          'table' => 'file_managed',
+        ),
+      ),
+      'indexes' => array(
+        'fid' => array(
+          0 => 'fid',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'file',
+      'settings' => array(
+        'display_default' => 0,
+        'display_field' => 0,
+        'uri_scheme' => 'public',
+      ),
+      'translatable' => '0',
+      'type' => 'file',
+    ),
+    'field_instance' => array(
+      'bundle' => 'wfdm_project',
+      'deleted' => '0',
+      'description' => 'This area is for holding Mobi files.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'file',
+          'settings' => array(),
+          'type' => 'file_table',
+          'weight' => '8',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+        'wfdm_project_list' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'wfdm_project_mobi',
+      'label' => 'Mobi',
+      'required' => 0,
+      'settings' => array(
+        'description_field' => 0,
+        'file_directory' => '',
+        'file_extensions' => 'mobi',
+        'filefield_paths' => array(
+          'active_updating' => 0,
+          'file_name' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+          ),
+          'file_path' => array(
+            'options' => array(
+              'pathauto' => FALSE,
+              'transliterate' => 0,
+            ),
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/mobi',
+          ),
+          'retroactive_update' => 0,
+        ),
+        'max_filesize' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'multiupload_filefield_widget',
+        'settings' => array(
+          'progress_indicator' => 'throbber',
+        ),
+        'type' => 'file_mfw',
+        'weight' => '12',
       ),
     ),
   );
@@ -1448,14 +1836,14 @@ function wfdm_field_default_fields() {
   t('Client Code');
   t('Description');
   t('Downloads');
-  t('ISBN-13');
-  t('ISBN-13 EPUB');
-  t('ISBN-13 Mobi');
+  t('ISBN');
+  t('ISBN EPUB');
+  t('ISBN Mobi');
   t('Images');
   t('InDesign XML');
-  t('Please enter the 13-character EPUB ISBN without dashes. This is required for e-book output.');
-  t('Please enter the 13-character Mobi ISBN without dashes. Only required if your e-book outputs required different ISBNs.');
-  t('Please enter the 13-character Print ISBN without dashes.');
+  t('Please enter the 10 or 13-character ISBN without dashes.');
+  t('Please enter the EPUB ISBN without dashes. This is required for e-book output.');
+  t('Please enter the Mobi/Kindle ISBN without dashes. Only necessary if your e-book outputs require different ISBNs.');
   t('Please enter the authors or editors for this title.');
   t('Please upload your custom project CSS here. It must be named client-code.css');
   t('Please upload your docx source files here. These must be composed with styles created by Scribe Inc.');

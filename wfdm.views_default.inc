@@ -90,7 +90,7 @@ function wfdm_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: ISBN-13 */
+  /* Field: Content: ISBN */
   $handler->display->display_options['fields']['wfdm_project_isbn']['id'] = 'wfdm_project_isbn';
   $handler->display->display_options['fields']['wfdm_project_isbn']['table'] = 'field_data_wfdm_project_isbn';
   $handler->display->display_options['fields']['wfdm_project_isbn']['field'] = 'wfdm_project_isbn';
@@ -183,7 +183,7 @@ if (file_exists($escmlDownload)) {
   $handler->display->display_options['fields']['php_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php_1']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php_1']['php_output'] = '<?php
-echo \'<form action="/transmog.php" method="post">\';
+echo \'<form action="/transmog.php?destination=publisher" method="post">\';
 echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
@@ -277,6 +277,13 @@ if (file_exists($epub3Download)) {
 ?>';
   $handler->display->display_options['fields']['php_5']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php_5']['php_click_sortable'] = '';
+  /* Field: Content: Downloads */
+  $handler->display->display_options['fields']['wfdm_project_downloads']['id'] = 'wfdm_project_downloads';
+  $handler->display->display_options['fields']['wfdm_project_downloads']['table'] = 'field_data_wfdm_project_downloads';
+  $handler->display->display_options['fields']['wfdm_project_downloads']['field'] = 'wfdm_project_downloads';
+  $handler->display->display_options['fields']['wfdm_project_downloads']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['wfdm_project_downloads']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['wfdm_project_downloads']['delta_offset'] = '0';
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -447,7 +454,7 @@ if (file_exists($epub3Download)) {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: ISBN-13 */
+  /* Field: Content: ISBN */
   $handler->display->display_options['fields']['wfdm_project_isbn']['id'] = 'wfdm_project_isbn';
   $handler->display->display_options['fields']['wfdm_project_isbn']['table'] = 'field_data_wfdm_project_isbn';
   $handler->display->display_options['fields']['wfdm_project_isbn']['field'] = 'wfdm_project_isbn';
