@@ -21,20 +21,23 @@ function wfdm_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Metadata',
-    'weight' => '10',
+    'weight' => '2',
     'children' => array(
       0 => 'wfdm_project_isbn',
       1 => 'wfdm_project_creator',
       2 => 'wfdm_project_publisher',
       3 => 'wfdm_project_subject',
+      4 => 'wfdm_project_isbn_epub',
+      5 => 'wfdm_project_isbn_mobi',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'label' => 'Metadata',
       'instance_settings' => array(
-        'description' => '',
         'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $export['group_metadata|node|wfdm_project|default'] = $field_group;

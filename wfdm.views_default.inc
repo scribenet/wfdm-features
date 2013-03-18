@@ -64,13 +64,6 @@ function wfdm_views_default_views() {
   $handler->display->display_options['fields']['field_client_code']['label'] = '';
   $handler->display->display_options['fields']['field_client_code']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_client_code']['element_label_colon'] = FALSE;
-  /* Field: Content: Client Code */
-  $handler->display->display_options['fields']['wfdm_project_client']['id'] = 'wfdm_project_client';
-  $handler->display->display_options['fields']['wfdm_project_client']['table'] = 'field_data_wfdm_project_client';
-  $handler->display->display_options['fields']['wfdm_project_client']['field'] = 'wfdm_project_client';
-  $handler->display->display_options['fields']['wfdm_project_client']['label'] = '';
-  $handler->display->display_options['fields']['wfdm_project_client']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['wfdm_project_client']['element_label_colon'] = FALSE;
   /* Field: Content: Project Code */
   $handler->display->display_options['fields']['wfdm_project_code']['id'] = 'wfdm_project_code';
   $handler->display->display_options['fields']['wfdm_project_code']['table'] = 'field_data_wfdm_project_code';
@@ -201,7 +194,7 @@ echo \'</form>\';
   $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
   $handler->display->display_options['fields']['php']['php_output'] = '<?php
-echo \'<form action="/sites/all/libraries/actions/escml2epub.php" method="post">\';
+echo \'<form action="/transmog.php?destination=publisher" method="post">\';
 echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
@@ -217,11 +210,10 @@ echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="no" />\';
-echo \'<input type="hidden" id="version" name="version" value="2" />\';
-echo \'<input type="hidden" id="job" name="job" value="escml2epub2" />\';
-echo \'<input type="submit" class="escml2epub2" value="Process EPUB2" />\';
+echo \'<input type="hidden" id="job" name="job" value="scml2epub2" />\';
+echo \'<input type="submit" class="epub2" value="Process EPUB2" />\';
 echo \'</form>\';
-echo \'<form action="/sites/all/libraries/actions/escml2epub.php" method="post">\';
+echo \'<form action="/transmog.php?destination=publisher" method="post">\';
 echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
@@ -237,9 +229,8 @@ echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="no" />\';
-echo \'<input type="hidden" id="version" name="version" value="3" />\';
-echo \'<input type="hidden" id="job" name="job" value="escml2epub3" />\';
-echo \'<input type="submit" class="escml2epub3" value="Process EPUB3" />\';
+echo \'<input type="hidden" id="job" name="job" value="scml2epub3" />\';
+echo \'<input type="submit" class="epub3" value="Process EPUB3" />\';
 echo \'</form>\';
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
