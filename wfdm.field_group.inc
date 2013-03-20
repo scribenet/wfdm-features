@@ -56,6 +56,7 @@ function wfdm_field_group_info() {
       1 => 'wfdm_project_scml',
       2 => 'wfdm_project_image',
       3 => 'wfdm_project_indd',
+      4 => 'wfdm_project_escml',
     ),
     'format_type' => 'tab',
     'format_settings' => array(
