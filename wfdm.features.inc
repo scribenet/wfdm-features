@@ -31,12 +31,12 @@ function wfdm_views_api() {
 function wfdm_node_info() {
   $items = array(
     'wfdm_project' => array(
-      'name' => t('WFDM Project'),
+      'name' => t('Project'),
       'base' => 'node_content',
-      'description' => t('Use this to create a project that will be output to various formats supported by the WFDM.'),
+      'description' => t('Use this to create a project that will be output to various formats supported by the Digital Hub.'),
       'has_title' => '1',
       'title_label' => t('Project Title'),
-      'help' => '',
+      'help' => t('Use this to create a project that will be output to various formats supported by the Digital Hub.'),
     ),
   );
   return $items;

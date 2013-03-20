@@ -87,7 +87,74 @@ function wfdm_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '21',
+        'weight' => '9',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-wfdm_project-wfdm_project_backlinking'.
+  $fields['node-wfdm_project-wfdm_project_backlinking'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'wfdm_project_backlinking',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'yes' => 'Yes',
+          'no' => 'No',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'wfdm_project',
+      'default_value' => array(
+        0 => array(
+          'value' => 'no',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => '15',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'wfdm_project_backlinking',
+      'label' => 'Backlinking',
+      'required' => 1,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => '6',
       ),
     ),
   );
@@ -162,7 +229,7 @@ function wfdm_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'text_textfield',
-        'weight' => '2',
+        'weight' => '1',
       ),
     ),
   );
@@ -335,7 +402,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '9',
+        'weight' => '7',
       ),
     ),
   );
@@ -432,7 +499,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '10',
+        'weight' => '6',
       ),
     ),
   );
@@ -478,7 +545,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '4',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -529,104 +596,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '10',
-      ),
-    ),
-  );
-
-  // Exported field: 'node-wfdm_project-wfdm_project_fonts'.
-  $fields['node-wfdm_project-wfdm_project_fonts'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '-1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'wfdm_project_fonts',
-      'foreign keys' => array(
-        'fid' => array(
-          'columns' => array(
-            'fid' => 'fid',
-          ),
-          'table' => 'file_managed',
-        ),
-      ),
-      'indexes' => array(
-        'fid' => array(
-          0 => 'fid',
-        ),
-      ),
-      'locked' => '0',
-      'module' => 'file',
-      'settings' => array(
-        'display_default' => 0,
-        'display_field' => 0,
-        'uri_scheme' => 'public',
-      ),
-      'translatable' => '0',
-      'type' => 'file',
-    ),
-    'field_instance' => array(
-      'bundle' => 'wfdm_project',
-      'deleted' => '0',
-      'description' => 'Upload fonts to be used in the EPUB output.',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'file',
-          'settings' => array(),
-          'type' => 'file_table',
-          'weight' => '11',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-        'wfdm_project_list' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'wfdm_project_fonts',
-      'label' => 'Fonts',
-      'required' => 0,
-      'settings' => array(
-        'description_field' => 0,
-        'file_directory' => '',
-        'file_extensions' => 'otf ttf',
-        'filefield_paths' => array(
-          'active_updating' => 0,
-          'file_name' => array(
-            'options' => array(
-              'pathauto' => FALSE,
-              'transliterate' => 0,
-            ),
-            'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
-          ),
-          'file_path' => array(
-            'options' => array(
-              'pathauto' => FALSE,
-              'transliterate' => 0,
-            ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/input/fonts',
-          ),
-          'retroactive_update' => 0,
-        ),
-        'max_filesize' => '',
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'multiupload_filefield_widget',
-        'settings' => array(
-          'progress_indicator' => 'throbber',
-        ),
-        'type' => 'file_mfw',
-        'weight' => '20',
+        'weight' => '9',
       ),
     ),
   );
@@ -672,7 +642,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '12',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -723,7 +693,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '17',
+        'weight' => '6',
       ),
     ),
   );
@@ -769,7 +739,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '13',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -820,19 +790,19 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '18',
+        'weight' => '7',
       ),
     ),
   );
 
-  // Exported field: 'node-wfdm_project-wfdm_project_escml'.
-  $fields['node-wfdm_project-wfdm_project_escml'] = array(
+  // Exported field: 'node-wfdm_project-wfdm_project_fonts'.
+  $fields['node-wfdm_project-wfdm_project_fonts'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'wfdm_project_escml',
+      'field_name' => 'wfdm_project_fonts',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -859,14 +829,14 @@ function wfdm_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'wfdm_project',
       'deleted' => '0',
-      'description' => 'This area is for uploading eSCML for conversion.',
+      'description' => 'Upload fonts to be used in the EPUB output.',
       'display' => array(
         'default' => array(
           'label' => 'above',
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '6',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -882,13 +852,13 @@ function wfdm_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'wfdm_project_escml',
-      'label' => 'eSCML',
+      'field_name' => 'wfdm_project_fonts',
+      'label' => 'Fonts',
       'required' => 0,
       'settings' => array(
         'description_field' => 0,
         'file_directory' => '',
-        'file_extensions' => 'scml',
+        'file_extensions' => 'otf ttf',
         'filefield_paths' => array(
           'active_updating' => 0,
           'file_name' => array(
@@ -903,7 +873,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/escml',
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/input/fonts',
           ),
           'retroactive_update' => 0,
         ),
@@ -917,7 +887,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '12',
+        'weight' => '8',
       ),
     ),
   );
@@ -963,7 +933,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '9',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1014,7 +984,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '16',
+        'weight' => '5',
       ),
     ),
   );
@@ -1052,7 +1022,7 @@ function wfdm_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'wfdm_project',
       'deleted' => '0',
-      'description' => 'Upload your images here',
+      'description' => 'Upload your images here. These must already be sized for the e-book output.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1062,7 +1032,7 @@ function wfdm_field_default_fields() {
             'image_style' => 'thumbnail',
           ),
           'type' => 'image',
-          'weight' => '10',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1105,7 +1075,7 @@ function wfdm_field_default_fields() {
           'retroactive_update' => 0,
         ),
         'max_filesize' => '',
-        'max_resolution' => '',
+        'max_resolution' => '640x960',
         'min_resolution' => '',
         'title_field' => 0,
         'user_register_form' => FALSE,
@@ -1118,7 +1088,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_miw',
-        'weight' => '15',
+        'weight' => '10',
       ),
     ),
   );
@@ -1164,7 +1134,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_default',
-          'weight' => 32,
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1209,7 +1179,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '13',
+        'weight' => '9',
       ),
     ),
   );
@@ -1480,7 +1450,7 @@ function wfdm_field_default_fields() {
           'module' => 'file',
           'settings' => array(),
           'type' => 'file_table',
-          'weight' => '14',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1531,7 +1501,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '19',
+        'weight' => '8',
       ),
     ),
   );
@@ -1703,7 +1673,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '11',
+        'weight' => '7',
       ),
     ),
   );
@@ -1849,11 +1819,14 @@ function wfdm_field_default_fields() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Author/Editor');
+  t('Backlinking');
   t('Client Code');
   t('Description');
+  t('Download files are stored here.');
   t('Downloads');
   t('EPUB2');
   t('EPUB3');
+  t('Fonts');
   t('ISBN');
   t('ISBN EPUB');
   t('ISBN Mobi');
@@ -1877,13 +1850,11 @@ function wfdm_field_default_fields() {
   t('This area is for holding InDesign Tagged Text.');
   t('This area is for holding Mobi files.');
   t('This area is for uploading InDesign XML for conversion.');
-  t('This area is for uploading eSCML for conversion.');
   t('This area is for uploading flat SCML for conversion.');
   t('This must follow the scheme [three-letter-client-code]-projectname.');
-  t('Upload your images here');
+  t('Upload fonts to be used in the EPUB output.');
+  t('Upload your images here. These must already be sized for the e-book output.');
   t('Word Documents');
-  t('Your downloads will appear here after you run the converter.');
-  t('eSCML');
 
   return $fields;
 }

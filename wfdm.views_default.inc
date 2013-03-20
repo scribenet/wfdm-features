@@ -235,39 +235,6 @@ echo \'</form>\';
 ?>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
   $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
-  /* Field: Global: PHP */
-  $handler->display->display_options['fields']['php_5']['id'] = 'php_5';
-  $handler->display->display_options['fields']['php_5']['table'] = 'views';
-  $handler->display->display_options['fields']['php_5']['field'] = 'php';
-  $handler->display->display_options['fields']['php_5']['label'] = 'Downloads';
-  $handler->display->display_options['fields']['php_5']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['php_5']['use_php_setup'] = 0;
-  $handler->display->display_options['fields']['php_5']['php_output'] = '<?php
-// Check for downloads
-$scmlDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/downloads/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml.zip\';
-$idttDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-idtt.zip\';
-$epubDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub\';
-$mobiDownload = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.mobi\';
-$epub3Download = $_SERVER[\'DOCUMENT_ROOT\'] . \'/sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub3/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub\';
-// Print the downloads
-if (file_exists($scmlDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/downloads/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-scml.zip">Download&nbsp;ScML</a><br />\';
-}
-if (file_exists($idttDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'-idtt.zip">Download&nbsp;IDTT</a><br />\';
-}
-if (file_exists($epubDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub">Download&nbsp;EPUB</a><br />\';
-}
-if (file_exists($mobiDownload)) {
-    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.mobi">Download&nbsp;Mobi</a><br />\';
-}
-if (file_exists($epub3Download)) {
-    echo \'<a href="../sites/default/files/projects/\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'/epub3/\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'.epub">Download&nbsp;EPUB3</a><br />\';
-}
-?>';
-  $handler->display->display_options['fields']['php_5']['use_php_click_sortable'] = '0';
-  $handler->display->display_options['fields']['php_5']['php_click_sortable'] = '';
   /* Field: Content: Downloads */
   $handler->display->display_options['fields']['wfdm_project_downloads']['id'] = 'wfdm_project_downloads';
   $handler->display->display_options['fields']['wfdm_project_downloads']['table'] = 'field_data_wfdm_project_downloads';
