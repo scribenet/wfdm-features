@@ -13,6 +13,35 @@ function wfdm_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_ebook_options|node|wfdm_project|form';
+  $field_group->group_name = 'group_ebook_options';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'wfdm_project';
+  $field_group->mode = 'form';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'E-book Options',
+    'weight' => '4',
+    'children' => array(
+      0 => 'wfdm_project_css',
+      1 => 'wfdm_project_fonts',
+      2 => 'wfdm_project_backlinking',
+    ),
+    'format_type' => 'tab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => '',
+        'required_fields' => 1,
+      ),
+    ),
+  );
+  $export['group_ebook_options|node|wfdm_project|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_files|node|wfdm_project|form';
   $field_group->group_name = 'group_files';
   $field_group->entity_type = 'node';
@@ -40,35 +69,6 @@ function wfdm_field_group_info() {
     ),
   );
   $export['group_files|node|wfdm_project|form'] = $field_group;
-
-  $field_group = new stdClass();
-  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
-  $field_group->api_version = 1;
-  $field_group->identifier = 'group_ebook_options|node|wfdm_project|form';
-  $field_group->group_name = 'group_ebook_options';
-  $field_group->entity_type = 'node';
-  $field_group->bundle = 'wfdm_project';
-  $field_group->mode = 'form';
-  $field_group->parent_name = '';
-  $field_group->data = array(
-    'label' => 'E-book Options',
-    'weight' => '4',
-    'children' => array(
-      0 => 'wfdm_project_css',
-      1 => 'wfdm_project_fonts',
-      2 => 'wfdm_project_backlinking',
-    ),
-    'format_type' => 'tab',
-    'format_settings' => array(
-      'formatter' => 'closed',
-      'instance_settings' => array(
-        'description' => '',
-        'classes' => '',
-        'required_fields' => 1,
-      ),
-    ),
-  );
-  $export['group_ebook_options|node|wfdm_project|form'] = $field_group;
 
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */

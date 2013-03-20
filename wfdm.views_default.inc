@@ -109,6 +109,13 @@ function wfdm_views_default_views() {
   $handler->display->display_options['fields']['wfdm_project_subject']['label'] = '';
   $handler->display->display_options['fields']['wfdm_project_subject']['exclude'] = TRUE;
   $handler->display->display_options['fields']['wfdm_project_subject']['element_label_colon'] = FALSE;
+  /* Field: Content: Backlinking */
+  $handler->display->display_options['fields']['wfdm_project_backlinking']['id'] = 'wfdm_project_backlinking';
+  $handler->display->display_options['fields']['wfdm_project_backlinking']['table'] = 'field_data_wfdm_project_backlinking';
+  $handler->display->display_options['fields']['wfdm_project_backlinking']['field'] = 'wfdm_project_backlinking';
+  $handler->display->display_options['fields']['wfdm_project_backlinking']['label'] = '';
+  $handler->display->display_options['fields']['wfdm_project_backlinking']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['wfdm_project_backlinking']['element_label_colon'] = FALSE;
   /* Field: Global: PHP */
   $handler->display->display_options['fields']['php_2']['id'] = 'php_2';
   $handler->display->display_options['fields']['php_2']['table'] = 'views';
@@ -209,7 +216,7 @@ echo \'<input type="hidden" id="publisher" name="publisher" value="\' . $data->f
 echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field_wfdm_project_creator[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
-echo \'<input type="hidden" id="backlink" name="backlink" value="no" />\';
+echo \'<input type="hidden" id="backlink" name="backlink" value="\' . $data->field_wfdm_project_backlinking[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="job" name="job" value="scml2epub2" />\';
 echo \'<input type="submit" class="epub2" value="Process EPUB2" />\';
 echo \'</form>\';
@@ -228,7 +235,7 @@ echo \'<input type="hidden" id="publisher" name="publisher" value="\' . $data->f
 echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field_wfdm_project_creator[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
-echo \'<input type="hidden" id="backlink" name="backlink" value="no" />\';
+echo \'<input type="hidden" id="backlink" name="backlink" value="\' . $data->field_wfdm_project_backlinking[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="job" name="job" value="scml2epub3" />\';
 echo \'<input type="submit" class="epub3" value="Process EPUB3" />\';
 echo \'</form>\';
