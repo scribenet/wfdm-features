@@ -25,6 +25,7 @@ features[field][] = node-wfdm_project-wfdm_project_code
 features[field][] = node-wfdm_project-wfdm_project_creator
 features[field][] = node-wfdm_project-wfdm_project_css
 features[field][] = node-wfdm_project-wfdm_project_docx
+features[field][] = node-wfdm_project-wfdm_project_downloads
 features[field][] = node-wfdm_project-wfdm_project_epub2
 features[field][] = node-wfdm_project-wfdm_project_epub3
 features[field][] = node-wfdm_project-wfdm_project_escml
