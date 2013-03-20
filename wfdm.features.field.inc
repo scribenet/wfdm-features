@@ -437,14 +437,14 @@ function wfdm_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-wfdm_project-wfdm_project_downloads'.
-  $fields['node-wfdm_project-wfdm_project_downloads'] = array(
+  // Exported field: 'node-wfdm_project-wfdm_project_fonts'.
+  $fields['node-wfdm_project-wfdm_project_fonts'] = array(
     'field_config' => array(
       'active' => '1',
       'cardinality' => '-1',
       'deleted' => '0',
       'entity_types' => array(),
-      'field_name' => 'wfdm_project_downloads',
+      'field_name' => 'wfdm_project_fonts',
       'foreign keys' => array(
         'fid' => array(
           'columns' => array(
@@ -471,7 +471,7 @@ function wfdm_field_default_fields() {
     'field_instance' => array(
       'bundle' => 'wfdm_project',
       'deleted' => '0',
-      'description' => 'Your downloads will appear here after you run the converter.',
+      'description' => 'Upload fonts to be used in the EPUB output.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -494,13 +494,13 @@ function wfdm_field_default_fields() {
         ),
       ),
       'entity_type' => 'node',
-      'field_name' => 'wfdm_project_downloads',
-      'label' => 'Downloads',
+      'field_name' => 'wfdm_project_fonts',
+      'label' => 'Fonts',
       'required' => 0,
       'settings' => array(
         'description_field' => 0,
         'file_directory' => '',
-        'file_extensions' => 'zip epub mobi',
+        'file_extensions' => 'otf ttf',
         'filefield_paths' => array(
           'active_updating' => 0,
           'file_name' => array(
@@ -515,7 +515,7 @@ function wfdm_field_default_fields() {
               'pathauto' => FALSE,
               'transliterate' => 0,
             ),
-            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/downloads',
+            'value' => 'projects/[current-user:field_client_code]/[node:wfdm_project_code]/input/fonts',
           ),
           'retroactive_update' => 0,
         ),
