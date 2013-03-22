@@ -545,11 +545,9 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
+<li>files need to be .docx</li>
+<li>tables should be built in Word</li>
+<li>typesetter notes and image callouts should be in {~?~...} format</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php_2']['use_php_click_sortable'] = '0';
@@ -602,11 +600,9 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
+<li>upload files that have been exported from InDesign as mapped XML</li>
+<li>produces one flat ScML file for uploaded file</li>
+<li>.indd files are not accepted</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
@@ -637,11 +633,8 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
+<li>produces one .idtt file for the entire book</li>
+<li>typesetter notes have {~?~...} format</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php_3']['use_php_click_sortable'] = '0';
@@ -703,11 +696,11 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
+<li>convert the flat ScML files to an e-book</li>
+<li>uses the output from Word to ScML or INDD to ScML</li>
+<li>EPUB2 produces a Kindle</li>
+<li>Cover image chapter is added automatically, do not include in ScML</li>
+<li>The file name for the cover image needs to be \'project-code-cover\'</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
@@ -769,11 +762,9 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
-<li>list item</li>
+<li>convert one structured eScML file to an e-book</li>
+<li>make sure that it is well-formed XML</li>
+<li>running ScML to EPUB will erase this file, keep a backup!</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php_5']['use_php_click_sortable'] = '0';
