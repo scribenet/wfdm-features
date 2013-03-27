@@ -11,11 +11,120 @@ function wfdm_views_default_views() {
   $export = array();
 
   $view = new view();
+  $view->name = 'hub_users';
+  $view->description = '';
+  $view->tag = 'default';
+  $view->base_table = 'users';
+  $view->human_name = 'Hub Users';
+  $view->core = 7;
+  $view->api_version = '3.0';
+  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
+
+  /* Display: Master */
+  $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['title'] = 'Hub Users';
+  $handler->display->display_options['use_more_always'] = FALSE;
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    3 => '3',
+    5 => '5',
+  );
+  $handler->display->display_options['cache']['type'] = 'none';
+  $handler->display->display_options['query']['type'] = 'views_query';
+  $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['reset_button'] = TRUE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['style_plugin'] = 'table';
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  /* Field: User: E-mail */
+  $handler->display->display_options['fields']['mail']['id'] = 'mail';
+  $handler->display->display_options['fields']['mail']['table'] = 'users';
+  $handler->display->display_options['fields']['mail']['field'] = 'mail';
+  $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
+  /* Field: User: Client Code */
+  $handler->display->display_options['fields']['field_client_code']['id'] = 'field_client_code';
+  $handler->display->display_options['fields']['field_client_code']['table'] = 'field_data_field_client_code';
+  $handler->display->display_options['fields']['field_client_code']['field'] = 'field_client_code';
+  $handler->display->display_options['fields']['field_client_code']['element_label_colon'] = FALSE;
+  /* Field: User: Roles */
+  $handler->display->display_options['fields']['rid']['id'] = 'rid';
+  $handler->display->display_options['fields']['rid']['table'] = 'users_roles';
+  $handler->display->display_options['fields']['rid']['field'] = 'rid';
+  $handler->display->display_options['fields']['rid']['label'] = 'Role';
+  $handler->display->display_options['fields']['rid']['element_label_colon'] = FALSE;
+  /* Field: User: Last access */
+  $handler->display->display_options['fields']['access']['id'] = 'access';
+  $handler->display->display_options['fields']['access']['table'] = 'users';
+  $handler->display->display_options['fields']['access']['field'] = 'access';
+  $handler->display->display_options['fields']['access']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['access']['date_format'] = 'short';
+  /* Field: User: Edit link */
+  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['table'] = 'users';
+  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
+  $handler->display->display_options['fields']['edit_node']['label'] = '';
+  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['edit_node']['text'] = 'Edit';
+  /* Sort criterion: User: Created date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'users';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  /* Filter criterion: User: Active */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'users';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = '1';
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['operator_id'] = '';
+  $handler->display->display_options['filters']['status']['expose']['label'] = 'Active';
+  $handler->display->display_options['filters']['status']['expose']['operator'] = 'status_op';
+  $handler->display->display_options['filters']['status']['expose']['identifier'] = 'status';
+  $handler->display->display_options['filters']['status']['expose']['required'] = TRUE;
+  $handler->display->display_options['filters']['status']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    4 => 0,
+    3 => 0,
+    5 => 0,
+  );
+  /* Filter criterion: User: Client Code (field_client_code) */
+  $handler->display->display_options['filters']['field_client_code_value']['id'] = 'field_client_code_value';
+  $handler->display->display_options['filters']['field_client_code_value']['table'] = 'field_data_field_client_code';
+  $handler->display->display_options['filters']['field_client_code_value']['field'] = 'field_client_code_value';
+  $handler->display->display_options['filters']['field_client_code_value']['operator'] = 'regular_expression';
+  $handler->display->display_options['filters']['field_client_code_value']['value'] = '.*';
+  $handler->display->display_options['filters']['field_client_code_value']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_client_code_value']['expose']['operator_id'] = 'field_client_code_value_op';
+  $handler->display->display_options['filters']['field_client_code_value']['expose']['label'] = 'Client Code';
+  $handler->display->display_options['filters']['field_client_code_value']['expose']['use_operator'] = TRUE;
+  $handler->display->display_options['filters']['field_client_code_value']['expose']['operator'] = 'field_client_code_value_op';
+  $handler->display->display_options['filters']['field_client_code_value']['expose']['identifier'] = 'field_client_code_value';
+  $handler->display->display_options['filters']['field_client_code_value']['expose']['remember_roles'] = array(
+    2 => '2',
+    1 => 0,
+    4 => 0,
+    3 => 0,
+    5 => 0,
+  );
+
+  /* Display: Page */
+  $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['path'] = 'admin/hub-users';
+  $export['hub_users'] = $view;
+
+  $view = new view();
   $view->name = 'projects';
   $view->description = '';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'projects';
+  $view->human_name = 'Hub Projects';
   $view->core = 7;
   $view->api_version = '3.0';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -49,7 +158,7 @@ function wfdm_views_default_views() {
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['empty'] = TRUE;
-  $handler->display->display_options['header']['area']['content'] = '<p>The Publisher allows you to generate a variety of formats from within the system. Currently, the system will generate Scribe Markup Language (ScML), InDesign text tagged, ePub and Mobi files.  We are performing final testing on our ePub 3 module and will release that shortly.  From there, Scribe has an ambitious development plan for Version 1.1. As new standards develop, so will the output capacity.</p>
+  $handler->display->display_options['header']['area']['content'] = '<p>The Publisher allows you to generate a variety of formats from within the system. Currently, the system will generate Scribe Markup Language (ScML), InDesign Tagged Text (IDTT), ePub and Mobi files.  We are performing final testing on our ePub 3 module and will release that shortly.  From there, Scribe has an ambitious development plan for our next release. As new standards develop, so will the output capacity.</p>
 <p><a href="/node/add/wfdm-project?destination=publisher">Create Project</a></p>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
   $handler->display->display_options['header']['area']['tokenize'] = TRUE;
@@ -545,9 +654,11 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>files need to be .docx</li>
-<li>tables should be built in Word</li>
-<li>typesetter notes and image callouts should be in {~?~...} format</li>
+<li>Files need to be in .docx format</li>
+<li>Tables should be built in Word</li>
+<li>Typesetter notes should be in this format: {~?~TN: [instruction]}</li>
+<li>Standalone image callouts should be in this format (using fig paragraph style + img character style): {~?~IM: insert scr-figurename-01 here.}</li>
+<li>In-line image callout should be in this format (using img character style): {~?~IM: insert scr-figurename-01 here.}</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php_2']['use_php_click_sortable'] = '0';
@@ -594,7 +705,7 @@ echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_f
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="job" name="job" value="indd2scml" />\';
 echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
-echo \'<input type="submit" class="indd2scml" value="InDesign to ScML" />\';
+echo \'<input type="submit" class="indd2scml" value="InDesign XML to ScML" />\';
 echo \'</form>\';
 ?>
 </div>
@@ -627,14 +738,13 @@ echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_f
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
 echo \'<input type="hidden" id="job" name="job" value="scml2idtt" />\';
-echo \'<input type="submit" class="scml2idtt" value="ScML to InDesign" />\';
+echo \'<input type="submit" class="scml2idtt" value="ScML to Indesign Tagged Text" />\';
 echo \'</form>\';
 ?>
 </div>
 <div class="instruction">
 <ul>
-<li>produces one .idtt file for the entire book</li>
-<li>typesetter notes have {~?~...} format</li>
+<li>Produces one .idtt file for the entire book</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php_3']['use_php_click_sortable'] = '0';
@@ -696,11 +806,12 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>convert the flat ScML files to an e-book</li>
-<li>uses the output from Word to ScML or INDD to ScML</li>
+<li>Convert the flat ScML files to an e-book</li>
+<li>Uses the output from Word to ScML or InDesign XML to ScML</li>
 <li>EPUB2 produces a Kindle</li>
-<li>Cover image chapter is added automatically, do not include in ScML</li>
-<li>The file name for the cover image needs to be \'project-code-cover\'</li>
+<li>Cover image is added automatically; do not include in ScML</li>
+<li>The file name for the cover image needs to be the project code followed by "-cover" (e.g. scr-project-cover)</li>
+<li>To create an eScML file, process ScML to EPUB. An eScML file will be included in the download.</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
@@ -762,9 +873,9 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>convert one structured eScML file to an e-book</li>
-<li>make sure that it is well-formed XML</li>
-<li>running ScML to EPUB will erase this file, keep a backup!</li>
+<li>Convert one structured eScML file to an e-book</li>
+<li>eScML file must be valid, well-formed XML</li>
+<li>Note: running ScML to EPUB will erase any uploaded eScML file. Keep a backup of any eScML file.</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php_5']['use_php_click_sortable'] = '0';

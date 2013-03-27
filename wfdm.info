@@ -55,4 +55,5 @@ features[field_validation_rule][] = project_code_unique
 features[menu_links][] = navigation:publisher
 features[node][] = wfdm_project
 features[rules_config][] = rules_delete_project_files
+features[views_view][] = hub_users
 features[views_view][] = projects
