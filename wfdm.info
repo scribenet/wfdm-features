@@ -43,6 +43,7 @@ features[field][] = node-wfdm_project-wfdm_project_mobi
 features[field][] = node-wfdm_project-wfdm_project_publisher
 features[field][] = node-wfdm_project-wfdm_project_scml
 features[field][] = node-wfdm_project-wfdm_project_subject
+features[field][] = node-wfdm_project-wfdm_project_toc_rebuild
 features[field][] = user-user-field_client_code
 features[field_group][] = group_ebook_options|node|wfdm_project|form
 features[field_group][] = group_files|node|wfdm_project|form

@@ -26,6 +26,7 @@ function wfdm_field_group_info() {
       0 => 'wfdm_project_css',
       1 => 'wfdm_project_fonts',
       2 => 'wfdm_project_backlinking',
+      3 => 'wfdm_project_toc_rebuild',
     ),
     'format_type' => 'tab',
     'format_settings' => array(

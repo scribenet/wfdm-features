@@ -328,6 +328,7 @@ echo \'<input type="hidden" id="client" name="client" value="\' . $data->field_f
 echo \'<input type="hidden" id="code" name="code" value="\' . $data->field_wfdm_project_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="nid" name="nid" value="\' . $data->nid . \'" />\';
 echo \'<input type="hidden" id="title" name="title" value="\' . $row->title . \'" />\';
+echo \'<input type="hidden" id="toc_rebuild" name="toc_rebuild" value= "\'. $data->field_wfdm_project_toc_rebuild[0][\'raw\'][\'value\']  . \'"  />\';
 if(isset($data->field_wfdm_project_isbn[0])){
 echo \'<input type="hidden" id="isbn" name="isbn" value="\' . $data->field_wfdm_project_isbn[0][\'raw\'][\'value\'] . \'" />\';
 }
@@ -359,6 +360,7 @@ echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="\' . $data->field_wfdm_project_backlinking[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="job" name="job" value="scml2epub3" />\';
+echo \'<input type="hidden" id="toc_rebuild" name="toc_rebuild" value="hello!"/>\';
 echo \'<input type="submit" class="epub3" value="Process EPUB3" />\';
 echo \'</form>\';
 ?>';
@@ -371,6 +373,11 @@ echo \'</form>\';
   $handler->display->display_options['fields']['wfdm_project_downloads']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['wfdm_project_downloads']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['wfdm_project_downloads']['delta_offset'] = '0';
+  /* Field: Content: Rebuild Table of Contents */
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['id'] = 'wfdm_project_toc_rebuild';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['table'] = 'field_data_wfdm_project_toc_rebuild';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['field'] = 'wfdm_project_toc_rebuild';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['exclude'] = TRUE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';

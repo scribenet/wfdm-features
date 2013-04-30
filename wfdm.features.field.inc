@@ -402,7 +402,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '7',
+        'weight' => '8',
       ),
     ),
   );
@@ -984,7 +984,7 @@ function wfdm_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'file_mfw',
-        'weight' => '8',
+        'weight' => '9',
       ),
     ),
   );
@@ -1850,6 +1850,73 @@ function wfdm_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-wfdm_project-wfdm_project_toc_rebuild'.
+  $fields['node-wfdm_project-wfdm_project_toc_rebuild'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'wfdm_project_toc_rebuild',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'locked' => '0',
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          'yes' => 'Yes',
+          'no' => 'No',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_text',
+    ),
+    'field_instance' => array(
+      'bundle' => 'wfdm_project',
+      'default_value' => array(
+        0 => array(
+          'value' => 'yes',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => '15',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'wfdm_project_toc_rebuild',
+      'label' => 'Rebuild Table of Contents',
+      'required' => 1,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => '7',
+      ),
+    ),
+  );
+
   // Exported field: 'user-user-field_client_code'.
   $fields['user-user-field_client_code'] = array(
     'field_config' => array(
@@ -1940,6 +2007,7 @@ function wfdm_field_default_fields() {
   t('Project CSS');
   t('Project Code');
   t('Publisher');
+  t('Rebuild Table of Contents');
   t('SCML');
   t('Subject');
   t('This area is for holding EPUB2 files.');
