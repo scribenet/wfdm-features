@@ -238,6 +238,11 @@ function wfdm_views_default_views() {
   $handler->display->display_options['fields']['wfdm_project_backlinking']['label'] = '';
   $handler->display->display_options['fields']['wfdm_project_backlinking']['exclude'] = TRUE;
   $handler->display->display_options['fields']['wfdm_project_backlinking']['element_label_colon'] = FALSE;
+  /* Field: Content: Rebuild Table of Contents */
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['id'] = 'wfdm_project_toc_rebuild';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['table'] = 'field_data_wfdm_project_toc_rebuild';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['field'] = 'wfdm_project_toc_rebuild';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['exclude'] = TRUE;
   /* Field: Global: PHP */
   $handler->display->display_options['fields']['php_2']['id'] = 'php_2';
   $handler->display->display_options['fields']['php_2']['table'] = 'views';
@@ -360,7 +365,7 @@ echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="\' . $data->field_wfdm_project_backlinking[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="job" name="job" value="scml2epub3" />\';
-echo \'<input type="hidden" id="toc_rebuild" name="toc_rebuild" value="hello!"/>\';
+echo \'<input type="hidden" id="toc_rebuild" name="toc_rebuild" value= "\'. $data->field_wfdm_project_toc_rebuild[0][\'raw\'][\'value\']  . \'"  />\';
 echo \'<input type="submit" class="epub3" value="Process EPUB3" />\';
 echo \'</form>\';
 ?>';
@@ -373,11 +378,6 @@ echo \'</form>\';
   $handler->display->display_options['fields']['wfdm_project_downloads']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['wfdm_project_downloads']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['wfdm_project_downloads']['delta_offset'] = '0';
-  /* Field: Content: Rebuild Table of Contents */
-  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['id'] = 'wfdm_project_toc_rebuild';
-  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['table'] = 'field_data_wfdm_project_toc_rebuild';
-  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['field'] = 'wfdm_project_toc_rebuild';
-  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['exclude'] = TRUE;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -625,6 +625,13 @@ echo \'</form>\';
 </div><!-- /.metadata -->';
   $handler->display->display_options['fields']['wfdm_project_backlinking']['element_type'] = '0';
   $handler->display->display_options['fields']['wfdm_project_backlinking']['element_label_type'] = 'strong';
+  /* Field: Content: Rebuild Table of Contents */
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['id'] = 'wfdm_project_toc_rebuild';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['table'] = 'field_data_wfdm_project_toc_rebuild';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['field'] = 'wfdm_project_toc_rebuild';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['label'] = '';
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['wfdm_project_toc_rebuild']['element_label_colon'] = FALSE;
   /* Field: Content: Downloads */
   $handler->display->display_options['fields']['wfdm_project_downloads']['id'] = 'wfdm_project_downloads';
   $handler->display->display_options['fields']['wfdm_project_downloads']['table'] = 'field_data_wfdm_project_downloads';
@@ -787,6 +794,7 @@ echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="\' . $data->field_wfdm_project_backlinking[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="toc_rebuild" name="toc_rebuild" value= "\'. $data->field_wfdm_project_toc_rebuild[0][\'raw\'][\'value\']  . \'"  />\';
 echo \'<input type="hidden" id="job" name="job" value="scml2epub2" />\';
 echo \'<input type="submit" class="epub2" value="ScML to EPUB2" />\';
 echo \'</form>\';
@@ -806,6 +814,7 @@ echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="\' . $data->field_wfdm_project_backlinking[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="toc_rebuild" name="toc_rebuild" value= "\'. $data->field_wfdm_project_toc_rebuild[0][\'raw\'][\'value\']  . \'"  />\';
 echo \'<input type="hidden" id="job" name="job" value="scml2epub3" />\';
 echo \'<input type="submit" class="epub3" value="ScML to EPUB3" />\';
 echo \'</form>\';
@@ -854,6 +863,7 @@ echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="\' . $data->field_wfdm_project_backlinking[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="toc_rebuild" name="toc_rebuild" value= "\'. $data->field_wfdm_project_toc_rebuild[0][\'raw\'][\'value\']  . \'"  />\';
 echo \'<input type="hidden" id="job" name="job" value="escml2epub2" />\';
 echo \'<input type="submit" class="epub2" value="eScML to EPUB2" />\';
 echo \'</form>\';
@@ -873,6 +883,7 @@ echo \'<input type="hidden" id="creator" name="creator" value="\' . $data->field
 echo \'<input type="hidden" id="subject" name="subject" value="\' . $data->field_wfdm_project_subject[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="css" name="css" value="\' . $data->field_field_client_code[0][\'raw\'][\'value\'] . \'" />\';
 echo \'<input type="hidden" id="backlink" name="backlink" value="\' . $data->field_wfdm_project_backlinking[0][\'raw\'][\'value\'] . \'" />\';
+echo \'<input type="hidden" id="toc_rebuild" name="toc_rebuild" value= "\'. $data->field_wfdm_project_toc_rebuild[0][\'raw\'][\'value\']  . \'"  />\';
 echo \'<input type="hidden" id="job" name="job" value="escml2epub3" />\';
 echo \'<input type="submit" class="epub3" value="eScML to EPUB3" />\';
 echo \'</form>\';
