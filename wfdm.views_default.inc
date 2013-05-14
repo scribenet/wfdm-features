@@ -725,9 +725,9 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>upload files that have been exported from InDesign as mapped XML</li>
-<li>produces one flat ScML file for uploaded file</li>
-<li>.indd files are not accepted</li>
+<li>Upload files that have been exported from InDesign as mapped XML</li>
+<li>Produces one flat ScML file for uploaded file</li>
+<li>.indd files <strong>are not</strong> accepted</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php_1']['use_php_click_sortable'] = '0';
@@ -758,7 +758,7 @@ echo \'</form>\';
 </div>
 <div class="instruction">
 <ul>
-<li>Produces one .idtt file for the entire book</li>
+<li>Produces .idtt files for the entire book</li>
 </ul>
 </div>';
   $handler->display->display_options['fields']['php_3']['use_php_click_sortable'] = '0';
